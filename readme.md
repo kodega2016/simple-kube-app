@@ -33,3 +33,29 @@ minikube service webserver
 ```
 
 it will open the webserver in the default browser.
+
+Now, lets try to create our first deployment with our own image.so first of all let's dockerize the application and push the docker image to docker registry.
+
+```bash
+docker image build . -t kodega2016/kube_action
+docker image tag kodega2016/kube_action kodega2016/kube_action:latest
+docker push kodega2016/kube_action:latest
+```
+
+So after pushing the image to the docker registry, we can create the deployment using the following command.
+
+```bash
+kubectl create deployment webapp_deployment --image kodega2016/kube_action:latest --port 8080
+```
+
+It will create the deployment with the specified image and port.We can check with the following commands.
+
+```bash
+kubectl get deployments
+```
+
+We can view the details of the deployments with the following command.
+
+```bash
+kubectl describe deployment webapp_deployment
+```

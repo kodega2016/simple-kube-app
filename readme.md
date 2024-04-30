@@ -80,3 +80,36 @@ kubectl scale deployment webapp_deployment --replicas=3
 ```
 
 It will scale the deployment to 3 replicas means 3 pods will be created with the same image and port.
+
+Updating the dployment:
+To update the deployment, we have to run the following command.
+
+```bash
+kubectl set image deployment/webapp-deployment kube-action=kodega2016/kube_action:v2
+```
+
+So, we can view the rollout status with the following commands.
+
+```bash
+kubectl rollout status deployment/webapp-deployment
+```
+
+we can view the rollout history of the deployment with the following commands:
+
+```bash
+kubectl rollout history deployment/webapp-deployment
+```
+
+we can view the rollout history details with the following command.
+
+```bash
+kubectl rollout history deployment webapp-deployment --revision=2
+```
+
+it will show the details of the specified revision and we can rollback to the previous deployment with the following command.
+
+```bash
+kubectl rollout undo deployment webapp-deployment --to-revision=1
+```
+
+it will rollback the deployment to the previous version(1)

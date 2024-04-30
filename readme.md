@@ -59,3 +59,15 @@ We can view the details of the deployments with the following command.
 ```bash
 kubectl describe deployment webapp_deployment
 ```
+
+Now,lets expose the deployment as a service to make it accessible from outside the cluster.
+
+```bash
+kubectl expose deployment webapp_deployment --type LoadBalancer --port 80 --target-port 80
+```
+
+Now, we can use the following minikube command to access the service from outside the cluster.
+
+```bash
+minikube service webapp_deployment
+```

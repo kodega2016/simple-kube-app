@@ -71,3 +71,12 @@ Now, we can use the following minikube command to access the service from outsid
 ```bash
 minikube service webapp_deployment
 ```
+
+Scaling the deployment:
+We can scale the deployment using the following command.
+
+```bash
+kubectl scale deployment webapp_deployment --replicas=3
+```
+
+It will scale the deployment to 3 replicas means 3 pods will be created with the same image and port.

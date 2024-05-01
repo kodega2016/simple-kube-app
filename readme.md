@@ -129,3 +129,10 @@ kubectl delete -f k8s/webapp-pod.yaml
 ```
 
 We can update the configuration in the yaml file and apply changes with the apply commands as mentioned above.
+we can delete the resource using the label also,
+
+```bash
+kubectl delete deployments -l app=webapp
+```
+
+it will delete the deployment with the label app=webapp.

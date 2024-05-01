@@ -19,5 +19,12 @@ spec:
       containers:
         - name: webapp
           image: kodega2016/kube_action
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 10
+            initialDelaySeconds: 5

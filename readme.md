@@ -113,3 +113,19 @@ kubectl rollout undo deployment webapp-deployment --to-revision=1
 ```
 
 it will rollback the deployment to the previous version(1)
+
+So, another approach to define the confifuration of the deployment is using the yaml file, Here we have defined some yaml files inside `k8s` folder.
+We need to following commands to create the deployment using the yaml file.
+
+```bash
+kubectl apply -f k8s/webapp-pod.yaml
+```
+
+it will create the pod with the specified configuration in the yaml file.
+We can delete the pod using the following command.
+
+```bash
+kubectl delete -f k8s/webapp-pod.yaml
+```
+
+We can update the configuration in the yaml file and apply changes with the apply commands as mentioned above.

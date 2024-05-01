@@ -9,6 +9,8 @@ spec:
   selector:
     matchLabels:
       app: webapp
+    # matchExpressions:
+    #   - { key:app, operator: In, values: [webapp, webserver] }
   template:
     metadata:
       labels:
